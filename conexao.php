@@ -1,22 +1,14 @@
 <?php
- 
-class conexao {
-    function __construct(){
-    
-}
+    session_start();
 
- public function conectar(){
-     $nome_servidor = "localhost";
-    $nome_usuario = "root";
-    $senha = "";
-    $nome_banco = "contato";
-    // Criar conexão
-    $conecta = new mysqli($nome_servidor, $nome_usuario, $senha,$nome_banco);
-    // Verificar Conexão
-    if ($conecta->connect_error) {
-    die("Conexão falhou: " . $conecta->connect_error."<br>");
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $dbname = 'contato';
+
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname;", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo 'ERRO: ' . $e->getMessage();
     }
-    echo "Conexão realizada com sucesso <br>";
-    return $conecta;
- }
-}
