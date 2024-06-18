@@ -2,9 +2,9 @@
     session_start();
 
     $host = 'db4free.net';
-    $user = 'brunotznr_0369';
-    $pass = 'Mysql@0369';
-    $dbname = 'blocozin_0369';
+    $user = 'rrrjhv';
+    $pass = 'Eradogelo11';
+    $dbname = 'contatosrrrjhv';
 
     try {
         $conn = new PDO("mysql:host=$host;dbname=$dbname;", $user, $pass);
